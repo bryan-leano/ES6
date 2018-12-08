@@ -535,6 +535,7 @@ Person6.greeting();
 ////////////////////////////////////////
 // Lecture: Classes and subclasses
 
+/*
 // ES5
 var Person5 = function(name, yearOfBirth, job) {
   this.name = name;
@@ -597,3 +598,87 @@ const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
 
 johnAthlete6.wonMedal();
 johnAthlete6.calculateAge();
+*/
+
+
+////////////////////////////////////
+// Coding Challenge
+
+/*
+Suppose that you're working in a small town administration, and you're in charge 
+of two town elements:
+1. Parks
+2. Streets
+
+It's a very small town, so right now there are only 3 parks and 4 streets. All parks
+and streets have a name and a build year.
+
+At an end-of-the-year meeting, your boss wants a final report with the following:
+1. Tree density of each park in the town
+(formula: number of trees/park area)
+2. Average age of each town's park
+(formula: sum of all ages/number of parks)
+3. The name of the park that has more than 1000 trees
+4. Total and average length of the town's streets
+5. Size classification of all streets: tiny/small/normal/big/huge.
+If the size is unknown, the default is normal
+
+All the report data should be printed to the console.
+
+HINT: Use some of the ES6 features: classes, subclasses, template strings, 
+default parameters, maps, arrow functions, destructuring, etc.
+*/
+
+class Parks {
+  constructor (name, buildYear, trees, area) {
+    this.name = name;
+    this.buildYear = buildYear;
+    this.trees = trees;
+    this.area = area; //area is measures in acres
+  }
+
+  //calculateAge() {
+  //  var age = new Date().getFullYear - this.yearOfBirth;
+  //  console.log(age);
+  //}
+
+  //static greeting() {
+  //  console.log('Hey there!');
+  //}
+
+};
+
+const park1 = new Parks('Liberty', 1867, 45, 15);
+const park2 = new Parks('Pioneer', 1929, 35, 10);
+const park3 = new Parks('Central', 1977, 30, 8);
+
+
+
+class Streets {
+  constructor (name, length, classification) {
+    this.name = name;
+    this.length = length; // this is measured in feet
+    if (length > 1100) {
+      this.classification = 'huge';
+      } else if (length > 800 && length <= 1100) {
+        this.classification = 'big';
+      } else if (length > 700 && length <= 800) {
+        this.classification = 'normal';
+      } else if (length > 600 && length <= 700) {
+        this.classification = 'small';
+      } else {
+        this.classification = 'tiny';
+      }
+    }
+  
+  };
+
+const street1 = new Streets('Stockton', 900);
+const street2 = new Streets('Malone', 725);
+const street3 = new Streets('Foothill', 1150);
+const street4 = new Streets('North Temple', 650);
+
+console.log(street1);
+console.log(street2);
+console.log(street3);
+console.log(street4);
